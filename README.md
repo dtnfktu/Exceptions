@@ -8,7 +8,7 @@
 Реализованы три метода, выдающие исключения:  
 - деление на ноль  (ArithmeticException)
 - выход за пределы массива  (ArrayIndexOutOfBoundsException)
-- пустой элемент (Null pointer exception)
+- пустой элемент (Null pointer exception)  
 [Здесь текст на Java](https://github.com/dtnfktu/Exceptions/blob/main/lesson01/Task1.java).  Реализовано в Visual Studio Code.  
   
 
