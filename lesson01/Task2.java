@@ -35,7 +35,7 @@ public class Task2 {
         return res.toString();
     }
     
-    // Новый массив, полчаемый в результате деления согласно условию задачи
+    // Новый массив, полчаемый в результате вычитания согласно условию задачи
     public static int[] diffArrays(int[] array1, int[] array2) {
         if (array1.length != array2.length) {
             throw new RuntimeException("Заданы массивы разной длины. Обработка невозможна");
