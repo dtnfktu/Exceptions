@@ -25,7 +25,7 @@
 
 **Реализуйте метод, который запрашивает у пользователя ввод дробного числа (типа float), и возвращает введенное значение. Ввод текста вместо числа не должен приводить к падению приложения, вместо этого, необходимо повторно запросить у пользователя ввод данных**  
 Реализован метод *public static Float getFloat()*. В данном методе считывается строка, после чего с помощью *Float.parseFloat* производится попытка ковертировать строку в вещественный тип данных. При неудачной попытке (в ведённой строке содержатся символы, не относящиеся к дробному числу) кидается исключение, оповещающее о он некорректном формате введённых данных. Процесс зациклен до тех пор, пока не будут введены корректные данные. Метод возвращает число типа *float*.  
-[Здесь текст на Java](https://github.com/dtnfktu/Exceptions/blob/main/lesson01/Task3.java).  Реализовано в Visual Studio Code.  
+[Здесь текст на Java](https://github.com/dtnfktu/Exceptions/blob/main/lesson02/Task01.java).  Реализовано в Visual Studio Code.  
   
   **Если необходимо, исправьте данный код**  
 01  try {  
@@ -45,4 +45,49 @@
 *05 } catch (ArithmeticException | ArrayIndexOutOfBoundsException e) {*   
 06   System.out.println("Catching exception: " + e);  
 07  } 
-
+  
+**Дан следующий код, исправьте его там, где требуется**  
+01  public static void main(String[] args) throws Exception {  
+02     try {  
+03         int a = 90;  
+04         int b = 3;  
+05         System.out.println(a / b);  
+06         printSum(23, 234);  
+07         int[] abc = { 1, 2 };  
+08         abc[3] = 9;  
+09     } catch (Throwable ex) {  
+10         System.out.println("Что-то пошло не так...");  
+11     } catch (NullPointerException ex) {  
+12         System.out.println("Указатель не может указывать на null!");  
+13     } catch (IndexOutOfBoundsException ex) {  
+14         System.out.println("Массив выходит за пределы своего размера!");  
+15     }  
+16  }  
+17  public static void printSum(Integer a, Integer b) throws FileNotFoundException {  
+18     System.out.println(a + b);  
+19  }  
+  
+Здесь при отлавливании исключений первым идёт *Throwable*, которое является исключением верхнего уровня для остальных отслеживаемых в данном коде исключений. Среда разработки не даёт скомпилировать код. Чтобы всё заработало следует строки 09-10 поместить после строки 15. Работающий код выглядит следующим образом:  
+01  public static void main(String[] args) throws Exception {  
+02     try {  
+03         int a = 90;  
+04         int b = 3;  
+05         System.out.println(a / b);  
+06         printSum(23, 234);  
+07         int[] abc = { 1, 2 };  
+08         abc[3] = 9;  
+11     } catch (NullPointerException ex) {  
+12         System.out.println("Указатель не может указывать на null!");  
+13     } catch (IndexOutOfBoundsException ex) {  
+14         System.out.println("Массив выходит за пределы своего размера!");  
+09     } catch (Throwable ex) {  
+10         System.out.println("Что-то пошло не так...");  
+15     }  
+16  }  
+17  public static void printSum(Integer a, Integer b) throws FileNotFoundException {  
+18     System.out.println(a + b);  
+19  }   
+  
+**Разработайте программу, которая выбросит Exception, когда пользователь вводит пустую строку. Пользователю должно показаться сообщение, что пустые строки вводить нельзя.**   
+Здесь всё просто: считывается строка, затем проверяется на наличие хоть чего-то в ней (*input.equals("")*). Если строка пустая, то выбрасывается исключение *throw new Exception("Пустые строки вводить нельзя")*. При необходимости, можно зациклить, пока не будет введена непустая строка.  
+[Здесь текст на Java](https://github.com/dtnfktu/Exceptions/blob/main/lesson02/Task2.java).  Реализовано в Visual Studio Code. 
