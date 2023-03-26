@@ -28,9 +28,6 @@ public class Task01 {
         }   
         scanner.close();
 
-
-
-
         return result;
     }
 }
